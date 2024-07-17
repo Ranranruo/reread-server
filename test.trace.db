@@ -1,52 +1,17 @@
-2024-07-17 19:03:45.020704+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE books([*]"; expected "identifier"; SQL statement:
-CREATE TABLE books( [42001-224]
-2024-07-17 19:03:47.024222+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE books([*]"; expected "identifier"; SQL statement:
-CREATE TABLE books( [42001-224]
-2024-07-17 19:07:14.444908+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]DATABASE reread"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
-CREATE DATABASE reread [42001-224]
-2024-07-17 19:07:15.967082+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]DATABASE reread"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
-CREATE DATABASE reread [42001-224]
-2024-07-17 19:07:22.242375+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]database easybank"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
-CREATE database easybank [42001-224]
-2024-07-17 19:07:23.079009+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]database easybank"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
-CREATE database easybank [42001-224]
-2024-07-17 19:07:23.243951+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]database easybank"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
-CREATE database easybank [42001-224]
-2024-07-17 19:07:23.673703+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]database easybank"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
-CREATE database easybank [42001-224]
-2024-07-17 19:19:15.095168+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "IOException reading C:\\Users\\test\\Downloads\\file1.csv"; SQL statement:
-CREATE TABLE table_1 AS SELECT * FROM CSVREAD('C:\Users\test\Downloads\file1.csv') [90028-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+2024-07-17 20:05:21.175021+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MY_TABLE" not found; SQL statement:
+INSERT INTO my_table SELECT * FROM csvread('C:/report2.csv') [42102-224]
+2024-07-17 20:05:30.022800+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.tools.Csv.convertException(Csv.java:588)
-	at org.h2.tools.Csv.read(Csv.java:182)
-	at org.h2.expression.function.table.CSVReadFunction.getValueTemplate(CSVReadFunction.java:95)
-	at org.h2.table.FunctionTable.<init>(FunctionTable.java:25)
-	at org.h2.command.Parser.readTablePrimary(Parser.java:1785)
-	at org.h2.command.Parser.readTableReference(Parser.java:2268)
-	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2718)
-	at org.h2.command.Parser.parseSelect(Parser.java:2824)
-	at org.h2.command.Parser.parseQueryPrimary(Parser.java:2708)
-	at org.h2.command.Parser.parseQueryTerm(Parser.java:2564)
-	at org.h2.command.Parser.parseQueryExpressionBody(Parser.java:2543)
-	at org.h2.command.Parser.parseQueryExpressionBodyAndEndOfQuery(Parser.java:2536)
-	at org.h2.command.Parser.parseQueryExpression(Parser.java:2529)
-	at org.h2.command.Parser.parseQuery(Parser.java:2498)
-	at org.h2.command.Parser.parseCreateTable(Parser.java:8978)
-	at org.h2.command.Parser.parseCreate(Parser.java:6404)
-	at org.h2.command.Parser.parsePrepared(Parser.java:666)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:312)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
 	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
@@ -94,49 +59,92 @@ CREATE TABLE table_1 AS SELECT * FROM CSVREAD('C:\Users\test\Downloads\file1.csv
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.nio.file.NoSuchFileException: C:\Users\test\Downloads\file1.csv
-	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
-	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:236)
-	at java.base/java.nio.file.Files.newByteChannel(Files.java:380)
-	at java.base/java.nio.file.Files.newByteChannel(Files.java:432)
-	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:422)
-	at java.base/java.nio.file.Files.newInputStream(Files.java:160)
-	at org.h2.store.fs.disk.FilePathDisk.newInputStream(FilePathDisk.java:442)
-	at org.h2.store.fs.FileUtils.newInputStream(FileUtils.java:277)
-	at org.h2.store.fs.FileUtils.newBufferedReader(FileUtils.java:291)
-	at org.h2.tools.Csv.initRead(Csv.java:308)
-	at org.h2.tools.Csv.readResultSet(Csv.java:206)
-	at org.h2.tools.Csv.read(Csv.java:180)
-	... 65 more
-2024-07-17 19:20:25.522955+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]TABLE TABLE_1"; expected "identifier"; SQL statement:
-DELETE TABLE TABLE_1 [42001-224]
-2024-07-17 19:23:45.496490+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE books AS SELECT * FROM CSVREAD([*]'C:\\report2.csv);"; SQL statement:
-CREATE TABLE books AS SELECT * FROM CSVREAD('C:\report2.csv); [42000-224]
-2024-07-17 19:24:13.939887+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]IDX"; expected "INSERT"; SQL statement:
-IDX [42001-224]
-2024-07-17 19:24:26.673156+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]BOOKS"; expected "BACKUP, BEGIN"; SQL statement:
-BOOKS [42001-224]
-2024-07-17 19:25:59.090745+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table books [*]modify idx INT"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
-alter table books modify idx INT [42001-224]
-2024-07-17 19:26:03.550088+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table books [*]modify idx int"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
-alter table books modify idx int [42001-224]
-2024-07-17 19:26:33.652850+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]BOOKS"; expected "BACKUP, BEGIN"; SQL statement:
-BOOKS [42001-224]
-2024-07-17 19:27:23.794995+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO books [*]AS SELECT * FROM CSVREAD('C:\\report2.csv')"; expected "., (, OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
-INSERT INTO books AS SELECT * FROM CSVREAD('C:\report2.csv') [42001-224]
-2024-07-17 19:29:39.332608+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLDataException: Cannot parse "DATE" constant "2022"; SQL statement:
-INSERT INTO books SELECT * FROM csvread('C:/report2.csv') [22007-224]
+2024-07-17 20:08:20.852457+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE book([*]"; expected "identifier"; SQL statement:
+CREATE TABLE book( [42001-224]
+2024-07-17 20:09:29.204188+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-224]
+2024-07-17 20:09:32.439520+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE books(\000d\000aidx LONG NOT NULL AUTO_INCREMENT,[*]"; expected "identifier"; SQL statement:
+CREATE TABLE books(
+idx LONG NOT NULL AUTO_INCREMENT, [42001-224]
+2024-07-17 20:14:44.716662+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "PUBLICATION_DATE CHARACTER VARYING(4)": "'2005(c2000' (10)"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [22001-224]
+2024-07-17 20:15:44.182458+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "PUBLICATION_DATE CHARACTER VARYING(4)": "'2005(c2000' (10)"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [22001-224]
+2024-07-17 20:16:09.017768+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table book [*]modify column publication_date VARCHAR(10)"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+alter table book modify column publication_date VARCHAR(10) [42001-224]
+2024-07-17 20:16:27.338665+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "AUTHOR CHARACTER VARYING(50)": "'by Pamela conn beall;Susan hagen nipp;ill. by Nancy spence klein' (64)"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [22001-224]
+2024-07-17 20:16:46.511851+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "AUTHOR CHARACTER VARYING(100)": "U&'\\ad6d\\b9bd\\c911\\c559\\bc15\\bb3c\\ad00 \\c9c0\\c74c ; \\d544\\c9c4: \\ae40\\b3d9\\c644,... (115)"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [22001-224]
+2024-07-17 20:28:02.772620+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:312)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp.query(WebApp.java:1119)
+	at org.h2.server.web.WebApp.process(WebApp.java:245)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-07-17 20:33:05.702100+09:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "DATE" constant "1"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [22007-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:518)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:212)
@@ -196,46 +204,289 @@ INSERT INTO books SELECT * FROM csvread('C:/report2.csv') [22007-224]
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.lang.IllegalArgumentException: 2022
+Caused by: java.lang.IllegalArgumentException: 1
 	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:187)
 	at org.h2.value.ValueDate.parse(ValueDate.java:51)
 	... 55 more
-2024-07-17 19:31:53.621534+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE books [*]MODIFY COLUMN publication_date VARCHAR(10)"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
-ALTER TABLE books MODIFY COLUMN publication_date VARCHAR(10) [42001-224]
-2024-07-17 19:31:57.533476+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE books [*]MODIFY COLUMN publication_date VARCHAR(10)"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
-ALTER TABLE books MODIFY COLUMN publication_date VARCHAR(10) [42001-224]
-2024-07-17 19:32:00.852782+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE books [*]MODIFY COLUMN publication_date VARCHAR(10)"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
-ALTER TABLE books MODIFY COLUMN publication_date VARCHAR(10) [42001-224]
-2024-07-17 19:32:02.023512+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE books [*]MODIFY COLUMN publication_date VARCHAR(10)"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
-ALTER TABLE books MODIFY COLUMN publication_date VARCHAR(10) [42001-224]
-2024-07-17 19:32:02.386545+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE books [*]MODIFY COLUMN publication_date VARCHAR(10)"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
-ALTER TABLE books MODIFY COLUMN publication_date VARCHAR(10) [42001-224]
-2024-07-17 19:32:58.092829+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLDataException: Value too long for column "AUTHOR CHARACTER VARYING(20)": "U&'\\b370\\c774\\be44\\b4dc \\be14\\b79c\\b4dc;\\c54c\\b809\\c0b0\\b354 \\c624\\c2a4\\d130 [\\a... (30)"; SQL statement:
-INSERT INTO books SELECT * FROM csvread('C:/report2.csv') [22001-224]
-2024-07-17 19:32:59.898554+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLDataException: Value too long for column "AUTHOR CHARACTER VARYING(20)": "U&'\\b370\\c774\\be44\\b4dc \\be14\\b79c\\b4dc;\\c54c\\b809\\c0b0\\b354 \\c624\\c2a4\\d130 [\\a... (30)"; SQL statement:
-INSERT INTO books SELECT * FROM csvread('C:/report2.csv') [22001-224]
-2024-07-17 19:33:07.948498+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLDataException: Value too long for column "AUTHOR CHARACTER VARYING(20)": "U&'\\b370\\c774\\be44\\b4dc \\be14\\b79c\\b4dc;\\c54c\\b809\\c0b0\\b354 \\c624\\c2a4\\d130 [\\a... (30)"; SQL statement:
-INSERT INTO books SELECT * FROM csvread('C:/report2.csv') [22001-224]
-2024-07-17 19:34:00.469024+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM BOOKS ALTER [*]TABLE books ALTER COLUMN author VARCHAR(255)"; SQL statement:
-SELECT * FROM BOOKS ALTER TABLE books ALTER COLUMN author VARCHAR(255) [42000-224]
-2024-07-17 19:34:39.564589+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLDataException: Value too long for column "CALL_NUMBER CHARACTER VARYING(20)": "U&'336.24 \\bd80942\\bd80 v.10 c.2' (21)"; SQL statement:
-INSERT INTO books SELECT * FROM csvread('C:/report2.csv') [22001-224]
-2024-07-17 19:34:57.687465+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]255"; SQL statement:
-255 [42000-224]
-2024-07-17 19:38:19.801581+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE books ADD view  LONG [*]NOT 0"; SQL statement:
-ALTER TABLE books ADD view  LONG NOT 0 [42000-224]
-2024-07-17 19:38:23.692785+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE books ADD view  LONG [*]NOT '0'"; SQL statement:
-ALTER TABLE books ADD view  LONG NOT '0' [42000-224]
+2024-07-17 20:34:01.872819+09:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:312)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp.query(WebApp.java:1119)
+	at org.h2.server.web.WebApp.process(WebApp.java:245)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-07-17 20:34:32.326313+09:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (BOOK: ""VIEW"" BIGINT)"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [22018-224]
+2024-07-17 20:35:19.598817+09:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "PUBLICATION_DATE CHARACTER VARYING(4)": "'2005(c2000' (10)"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [22001-224]
+2024-07-17 20:36:48.510799+09:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "PUBLICATION_DATE CHARACTER VARYING(4)": "'2005(c2000' (10)"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [22001-224]
+2024-07-17 20:37:15.937490+09:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "AUTHOR CHARACTER VARYING(50)": "'by Pamela conn beall;Susan hagen nipp;ill. by Nancy spence klein' (64)"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C:/report2.csv') [22001-224]
+2024-07-17 20:37:55.227828+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "B1_0.REGISTER_DATE" not found; SQL statement:
+select b1_0.idx,b1_0.author,b1_0.call_number,b1_0.name,b1_0.no,b1_0.publication_date,b1_0.publisher,b1_0.register_date,b1_0.rent_state,b1_0.storage,b1_0.view from book b1_0 [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:328)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:153)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:183)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:155)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.lambda$list$0(JdbcSelectExecutor.java:85)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:231)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:167)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.advanceNext(JdbcValuesResultSetImpl.java:265)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.processNext(JdbcValuesResultSetImpl.java:145)
+	at org.hibernate.sql.results.jdbc.internal.AbstractJdbcValues.next(AbstractJdbcValues.java:19)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.next(RowProcessingStateStandardImpl.java:67)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:204)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:139)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:382)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:302)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:526)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:423)
+	at org.hibernate.query.Query.getResultList(Query.java:120)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:391)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:1)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy4/jdk.proxy4.$Proxy115.findAll(Unknown Source)
+	at sdhs.rereadserver.Book.BookService.findAll(BookService.java:17)
+	at sdhs.rereadserver.Book.BookController.getBooks(BookController.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-07-17 20:39:07.717925+09:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "IOException reading C;/report2.csv"; SQL statement:
+INSERT INTO book SELECT * FROM csvread('C;/report2.csv') [90028-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.tools.Csv.convertException(Csv.java:588)
+	at org.h2.tools.Csv.read(Csv.java:182)
+	at org.h2.expression.function.table.CSVReadFunction.getValueTemplate(CSVReadFunction.java:95)
+	at org.h2.table.FunctionTable.<init>(FunctionTable.java:25)
+	at org.h2.command.Parser.readTablePrimary(Parser.java:1785)
+	at org.h2.command.Parser.readTableReference(Parser.java:2268)
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2718)
+	at org.h2.command.Parser.parseSelect(Parser.java:2824)
+	at org.h2.command.Parser.parseQueryPrimary(Parser.java:2708)
+	at org.h2.command.Parser.parseQueryTerm(Parser.java:2564)
+	at org.h2.command.Parser.parseQueryExpressionBody(Parser.java:2543)
+	at org.h2.command.Parser.parseQueryExpressionBodyAndEndOfQuery(Parser.java:2536)
+	at org.h2.command.Parser.parseQueryExpression(Parser.java:2529)
+	at org.h2.command.Parser.parseQuery(Parser.java:2498)
+	at org.h2.command.Parser.parseInsert(Parser.java:1577)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp.query(WebApp.java:1119)
+	at org.h2.server.web.WebApp.process(WebApp.java:245)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.nio.file.NoSuchFileException: C;\report2.csv
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:236)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432)
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:422)
+	at java.base/java.nio.file.Files.newInputStream(Files.java:160)
+	at org.h2.store.fs.disk.FilePathDisk.newInputStream(FilePathDisk.java:442)
+	at org.h2.store.fs.FileUtils.newInputStream(FileUtils.java:277)
+	at org.h2.store.fs.FileUtils.newBufferedReader(FileUtils.java:291)
+	at org.h2.tools.Csv.initRead(Csv.java:308)
+	at org.h2.tools.Csv.readResultSet(Csv.java:206)
+	at org.h2.tools.Csv.read(Csv.java:180)
+	... 64 more
