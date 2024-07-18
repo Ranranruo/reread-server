@@ -1,12 +1,16 @@
-package sdhs.rereadserver.Book;
+package sdhs.rereadserver.book;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.sql.Date;
 
 @Entity
 @ToString
+@Getter
+@Setter
 public class Book {
     @Column(name = "idx")
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,9 +36,6 @@ public class Book {
 
     @Column(name = "register_date")
     private Date registerDate;
-
-    @Column(name = "rent_state")
-    private String rentState;
 
     @Column(name = "storage")
     private String storage;
