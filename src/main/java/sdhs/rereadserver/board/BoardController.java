@@ -71,7 +71,7 @@ public class BoardController {
         return new ResponseFormat<Map<String, Object>>()
                 .code(200)
                 .message("OK")
-                .data(board.get())j
+                .data(board.get())
                 .build();
     }
 
