@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ResponseFormat <T>{
+public class ResponseFormat<T>{
     private Map<String, Object> response = new LinkedHashMap<String, Object>();
     private Integer code;
     private String message;

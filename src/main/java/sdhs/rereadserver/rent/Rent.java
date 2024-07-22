@@ -22,6 +22,9 @@ public class Rent {
     @Column(name = "return_date")
     private Date returnDate;
 
-    @Column(name = "book_idx")
-    private Long bookIdx;
+    @Column(name = "state")
+    private String state;
+
+    @Column(name = "book_no")
+    private String bookNo;
 }

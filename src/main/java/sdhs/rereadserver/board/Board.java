@@ -25,9 +25,13 @@ public class Board {
     @Column(name = "author")
     private String author;
 
+
     @Column(name = "create_date")
-    private Date createDate;
+    private String createDate;
 
     @Column(name = "view")
     private Long view;
+
+    @Column(name = "category")
+    private String category;
 }
